@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
-import { Home } from '../Home/Home';
+import { Home } from '../components/Home/Home';
+import  { Navigation } from "../components/Navigation/Navigation"
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <Home />
       </section>
       <section className='App__nav'>
-        <h3>Navigation</h3>
+        <Navigation />
       </section>
     </div>
   );
