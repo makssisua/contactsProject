@@ -1,4 +1,13 @@
+import { FC } from "react"
+import { Contact } from "../../../interface/Contact"
+import personImg from "./contactImg/person.png"
 
-export const ContactItem = () => {
-  return <div>Name</div>
+interface Props {
+  contact: Contact
+}
+
+export const ContactItem: FC<Props> = ({ contact }) => {
+  return (
+    <div><img src={personImg} alt="person img" /> {contact.name}</div>
+  )
 }

@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import "../ContactsList/ContactsList.scss" 
+import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { fetchUsers } from "../../../store/reducers/ActionCreators";
+import { ContactItem } from "../ContactItem/ContactItem";
 
 export const Contacts = () => {
   const { contacts, isLoading, error } = useAppSelector(state => state.contactsReducer)
@@ -8,16 +11,27 @@ export const Contacts = () => {
   console.log('contacts', contacts)
 
   useEffect(() => {
-    dispatch(fetchUsers())
+    if (contacts.length === 0) {
+      dispatch(fetchUsers())
+    }
   }, [])
   return (
     <>
       <h1>Contacts</h1>
       {isLoading && <h3>Loading...</h3>}
       {error && <h3>{error}</h3>}
-      {contacts.map((contact) => 
-        <div>{contact.name} {contact.phone}</div>
-      )}
+      <ul className="list-group">
+        {contacts.map(contact => 
+          <li 
+            key={contact.id} 
+            className="list-group-item item"
+            >
+            <Link className="item" to={`${contact.id}`}>
+              <ContactItem contact={contact}/>
+            </Link>
+          </li>
+        )}
+      </ul>
     </>
   )
 }

@@ -6,6 +6,7 @@ import { Contacts } from '../Contacts/ContactsList/ContactsList';
 import { Navigation } from "../Navigation/Navigation"
 import { Page404 } from '../Error/404';
 import { Route, Routes } from 'react-router';
+import { ContactItemPage } from '../Contacts/ContactItem/ContactItemPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/contacts' element={<Contacts />}/>
+          <Route path='/contacts/:id' element={<ContactItemPage />}/>
           <Route path='/about' element={<About />}/>
           <Route path="*" element={<Page404 />}/>
         </Routes>
