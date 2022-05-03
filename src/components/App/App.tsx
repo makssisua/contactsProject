@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.scss';
-import { Home } from '../components/Home/Home';
-import { About } from '../components/About/About'; 
-import { Contacts } from '../components/Contacts/Contacts'; 
-import { Navigation } from "../components/Navigation/Navigation"
-import { Page404 } from '../components/Error/404';
+import { Home } from '../Home/Home';
+import { About } from '../About/About'; 
+import { Contacts } from '../Contacts/ContactsList/ContactsList'; 
+import { Navigation } from "../Navigation/Navigation"
+import { Page404 } from '../Error/404';
 import { Route, Routes } from 'react-router';
 
 function App() {
