@@ -20,6 +20,10 @@
     font-weight: bold;
     text-transform: uppercase;
 
+    & a:hover {
+      color: white;
+    }
+
     &--link {
       display: flex;
       justify-content: center;
