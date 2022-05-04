@@ -18,9 +18,7 @@ export const Contacts: React.FC = () => {
   }, [])
 
   const filterContacts = (): Contact[] => {
-    let filteredContacts
-
-    return filteredContacts = contacts.filter(contact => (
+    return contacts.filter(contact => (
       contact.name.toLowerCase().includes(searchInput.toLocaleLowerCase())
     ))
   }
