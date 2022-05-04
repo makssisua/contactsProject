@@ -1,7 +1,8 @@
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useAppSelector } from "../../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { contactsSlice } from "../../../store/reducers/ContactsSlice";
+import { fetchUsers } from "../../../store/reducers/ActionCreators";
 import personImg from "./contactImg/person.png"
 
 export const ContactItemPage: React.FC = () => {
@@ -9,12 +10,20 @@ export const ContactItemPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const currentTodo = contacts.find(el => el.id === Number(id))
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    if (contacts.length === 0) {
+      dispatch(fetchUsers())
+    }
+  }, [])
 
   const deleteContact = () => {
     dispatch(contactsSlice.actions.deleteContact(id))
     navigate('/contacts')
   }
+
+  console.log(contacts)
   
   return (
     <>

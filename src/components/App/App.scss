@@ -23,3 +23,19 @@
     width: 100%;
   }
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #7d2ae8; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9e68e4; 
+}

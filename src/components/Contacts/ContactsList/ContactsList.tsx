@@ -35,6 +35,7 @@ export const Contacts: React.FC = () => {
   return (
     <>
       <h1>Contacts</h1>
+      
       <div className="input-group input-group-sm mb-3 search">
         <input 
           type="text"
@@ -44,19 +45,19 @@ export const Contacts: React.FC = () => {
           onChange={(e) => handleSearchInput(e)}
         />
       </div>
+      
       {isLoading && <h3>Loading...</h3>}
       {error && <h3>{error}</h3>}
+      
       <ul className="list-group">
         {filteredContacts.map(contact => 
-          <Link className="item" to={`${contact.id}`}>
+          <Link key={contact.id} className="item" to={`${contact.id}`}>
             <li 
-              key={contact.id} 
               className="list-group-item item"
             >
-            <ContactItem contact={contact}/>
-          </li>
+              <ContactItem contact={contact}/>
+            </li>
           </Link>
-          
         )}
       </ul>
     </>
