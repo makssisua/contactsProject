@@ -29,14 +29,10 @@ export const Contacts: React.FC = () => {
   }
 
   const filteredContacts = useMemo(filterContacts, [searchInput, contacts])
-
-  console.log(filteredContacts)
   
   return (
     <>
       <h1>Contacts</h1>
-      {isLoading && <h3>Loading...</h3>}
-      {error && <h3>{error}</h3>}
       <div className="input-group input-group-sm mb-3 search">
         <input 
           type="text"
@@ -46,6 +42,8 @@ export const Contacts: React.FC = () => {
           onChange={(e) => handleSearchInput(e)}
         />
       </div>
+      {isLoading && <h3>Loading...</h3>}
+      {error && <h3>{error}</h3>}
       <ul className="list-group">
         {filteredContacts.map(contact => 
           <li 

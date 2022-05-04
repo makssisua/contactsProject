@@ -8,6 +8,10 @@ interface Props {
 
 export const ContactItem: FC<Props> = ({ contact }) => {
   return (
-    <div><img src={personImg} alt="person img" /> {contact.name}</div>
+    <>
+      <img src={personImg} alt="person img" />
+      {contact.name}
+    </>
+    
   )
 }
