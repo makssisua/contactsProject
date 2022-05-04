@@ -19,8 +19,10 @@ export const Contacts: React.FC = () => {
 
   const filterContacts = (): Contact[] => {
     return contacts.filter(contact => (
-      contact.name.toLowerCase().includes(searchInput.toLocaleLowerCase())
-    ))
+      contact.name
+      .toLowerCase()
+      .includes(searchInput.toLocaleLowerCase()))
+    ).sort((a, b) => a.name.localeCompare(b.name))
   }
   
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,14 +48,15 @@ export const Contacts: React.FC = () => {
       {error && <h3>{error}</h3>}
       <ul className="list-group">
         {filteredContacts.map(contact => 
-          <li 
-            key={contact.id} 
-            className="list-group-item item"
+          <Link className="item" to={`${contact.id}`}>
+            <li 
+              key={contact.id} 
+              className="list-group-item item"
             >
-            <Link className="item" to={`${contact.id}`}>
-              <ContactItem contact={contact}/>
-            </Link>
+            <ContactItem contact={contact}/>
           </li>
+          </Link>
+          
         )}
       </ul>
     </>
