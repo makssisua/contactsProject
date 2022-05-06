@@ -49,11 +49,9 @@ export const ContactItemPage: React.FC = () => {
           Delete
         </button>
         {currentContact && (
-          <div className="modalll">
-            <Modal title={"Change contact"}>
-              <ChangeContact contact={currentContact} />
-            </Modal>
-          </div>
+          <Modal title={"Change contact"}>
+            <ChangeContact contact={currentContact} />
+          </Modal>
         )}
       </div>
     </>

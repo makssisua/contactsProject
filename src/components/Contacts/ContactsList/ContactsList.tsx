@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { fetchUsers } from "../../../store/reducers/ActionCreators";
 import { ContactItem } from "../ContactItem/ContactItem";
 import { Contact } from "../../../interface/Contact";
+import { AddContact } from "../AddContact/AddContact";
 
 export const Contacts: React.FC = () => {
   const { contacts, isLoading, error } = useAppSelector(state => state.contactsReducer)
@@ -48,6 +49,8 @@ export const Contacts: React.FC = () => {
       
       {isLoading && <h3>Loading...</h3>}
       {error && <h3>{error}</h3>}
+      
+      <AddContact />
       
       <ul className="list-group">
         {filteredContacts.map(contact => 
