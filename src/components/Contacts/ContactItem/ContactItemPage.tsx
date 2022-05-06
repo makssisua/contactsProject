@@ -4,12 +4,15 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { contactsSlice } from "../../../store/reducers/ContactsSlice";
 import { fetchUsers } from "../../../store/reducers/ActionCreators";
 import personImg from "./contactImg/person.png"
+import { Modal } from "../../Modal/Modal";
+import { ChangeContact } from "./ChangeContact/ChangeContact";
+import { Contact } from "../../../interface/Contact";
 
 export const ContactItemPage: React.FC = () => {
   const { contacts } = useAppSelector(state => state.contactsReducer)
   const { id } = useParams();
   const navigate = useNavigate();
-  const currentTodo = contacts.find(el => el.id === Number(id))
+  const currentContact: Contact | undefined = contacts.find(el => el.id === Number(id))
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -21,18 +24,21 @@ export const ContactItemPage: React.FC = () => {
   const deleteContact = () => {
     dispatch(contactsSlice.actions.deleteContact(id))
     navigate('/contacts')
-  }
-
-  console.log(contacts)
+  } 
   
   return (
     <>
       <h2>Contact page</h2>
       <img width='60px' src={personImg} alt="person img" />
-      <p>{`Name:  ${currentTodo?.name}`}</p>
-      <p>{`Phone:  ${currentTodo?.phone}`}</p>
+      <p>{`Name:  ${currentContact?.name}`}</p>
+      <p>{`Phone:  ${currentContact?.phone}`}</p>
       <div className="d-flex gap-3">
-        <button type="button" className="btn btn-warning">
+        <button 
+          type="button" 
+          className="btn btn-warning"
+          data-bs-toggle="modal" 
+          data-bs-target="#staticBackdrop"
+        >
           Change
         </button>
         <button 
@@ -42,6 +48,13 @@ export const ContactItemPage: React.FC = () => {
           >
           Delete
         </button>
+        {currentContact && (
+          <div className="modalll">
+            <Modal title={"Change contact"}>
+              <ChangeContact contact={currentContact} />
+            </Modal>
+          </div>
+        )}
       </div>
     </>
   )
