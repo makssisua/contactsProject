@@ -46,11 +46,11 @@ export const Contacts: React.FC = () => {
           onChange={(e) => handleSearchInput(e)}
         />
       </div>
+
+      <AddContact />
       
       {isLoading && <h3>Loading...</h3>}
       {error && <h3>{error}</h3>}
-      
-      <AddContact />
       
       <ul className="list-group">
         {filteredContacts.map(contact => 

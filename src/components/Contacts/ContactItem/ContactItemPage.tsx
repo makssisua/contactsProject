@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { contactsSlice } from "../../../store/reducers/ContactsSlice";
 import { fetchUsers } from "../../../store/reducers/ActionCreators";
 import personImg from "./contactImg/person.png"
-import { Modal } from "../../Modal/Modal";
 import { ChangeContact } from "./ChangeContact/ChangeContact";
 import { Contact } from "../../../interface/Contact";
 
@@ -49,9 +48,7 @@ export const ContactItemPage: React.FC = () => {
           Delete
         </button>
         {currentContact && (
-          <Modal title={"Change contact"}>
-            <ChangeContact contact={currentContact} />
-          </Modal>
+          <ChangeContact contact={currentContact} />
         )}
       </div>
     </>

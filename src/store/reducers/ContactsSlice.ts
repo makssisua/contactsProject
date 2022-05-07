@@ -36,6 +36,9 @@ export const contactsSlice = createSlice({
       let newState: Contact[] = state.contacts.filter(el => el.id !== action.payload.id )
         
       state.contacts = [...newState, action.payload]
+    },
+    addContact(state, action: PayloadAction<Contact[]>) {
+      state.contacts = action.payload
     }
   }
 })
