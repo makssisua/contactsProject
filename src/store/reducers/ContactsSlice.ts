@@ -1,11 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Contact } from "../../interface/Contact"
-
-interface ContactsState {
-  contacts: Contact[];
-  isLoading: boolean;
-  error: string;
-}
+import { Contact, ContactsState } from "../../interface/Contact"
 
 const initialState: ContactsState = {
   contacts: [],
@@ -29,7 +23,7 @@ export const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload
     },
-    deleteContact(state, action: PayloadAction<string | undefined>) {
+    deleteContact(state, action: PayloadAction<string>) {
       state.contacts = state.contacts.filter(el => el.id !== Number(action.payload) )
     },
     changeContact(state, action: PayloadAction<Contact>) {

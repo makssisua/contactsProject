@@ -21,7 +21,9 @@ export const ContactItemPage: React.FC = () => {
   }, [])
 
   const deleteContact = () => {
-    dispatch(contactsSlice.actions.deleteContact(id))
+    if (id) {
+      dispatch(contactsSlice.actions.deleteContact(id))
+    }
     navigate('/contacts')
   } 
   
