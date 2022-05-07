@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 const store = setupStore();
 
 root.render(
-  <HashRouter basename={process.env.PUBLIC_URL}>
+  <HashRouter>
     <Provider store={store}>
       <App />
     </Provider>
