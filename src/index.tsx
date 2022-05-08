@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const store = setupStore();
+export const store = setupStore();
 
 root.render(
   <HashRouter>
