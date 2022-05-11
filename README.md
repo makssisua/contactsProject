@@ -1,6 +1,6 @@
 # Project Contact Book
 
-Used: React, TypeScript, Redux Toolkit, React hooks, Sass, Routing, Bootstrap style and modal window
+Used: React, TypeScript, Redux Toolkit, React hooks, Routing, Sass, Bootstrap style and modal window
 
 ## Demo
 
